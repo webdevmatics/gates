@@ -10,6 +10,11 @@ class BotController extends Controller
     public function bot(Request $request)
     {   
     	File::put('fb.txt',json_encode($request->all()));
+
+    	 $data = $request->all();
+        //get the user’s id
+        $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
+    	 $this->sendTextMessage($id, "Hello");
     }
 
 
