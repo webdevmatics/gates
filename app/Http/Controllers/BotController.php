@@ -8,7 +8,6 @@ class BotController extends Controller
 {
     public function bot(Request $request)
     {   
-    	dd("hi");
     	 $data = $request->all();
     	 File::put("fb.txt","haha");
     	 // dd($data);
