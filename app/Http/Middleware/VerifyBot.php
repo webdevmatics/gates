@@ -19,6 +19,6 @@ class VerifyBot
             && $request->input("hub_verify_token") === env("MESSENGER_VERIFY_TOKEN")) {
             return response($request->input("hub_challenge"), 200);
         }
-        return $next($request);
+        return "middleware";
     }
 }
