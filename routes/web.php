@@ -18,3 +18,4 @@ Route::get('/', function () {
 
 Route::get('/bot','BotController@bot')->middleware('verifybot');
 Route::post('/bot','BotController@bot');
+
