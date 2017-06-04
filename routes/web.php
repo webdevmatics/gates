@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/bot','BotController@bot');
+Route::post('/bot','BotController@bot');
