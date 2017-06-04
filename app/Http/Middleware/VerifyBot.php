@@ -20,6 +20,8 @@ class VerifyBot
             File::put('fb.txt',"middleware bot");
             return response($request->input("hub_challenge"), 200);
         }
+            File::put('fb.txt',"middleware bot else");
+
         return $next($request);
     }
 }
