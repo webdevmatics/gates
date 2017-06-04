@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bot','BotController@bot');
+Route::get('/bot','BotController@bot')->middleware('verifybot');
 Route::post('/bot','BotController@bot');
