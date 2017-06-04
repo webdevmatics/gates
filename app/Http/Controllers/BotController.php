@@ -9,7 +9,7 @@ class BotController extends Controller
 {
     public function bot(Request $request)
     {   
-    	File::put('fb.txt',$request->all());
+    	File::put('fb.txt',json_encode($request->all()));
     }
 
 
