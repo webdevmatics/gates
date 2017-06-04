@@ -8,7 +8,6 @@ class BotController extends Controller
 {
     public function bot(Request $request)
     {   
-    	 File::put("fb.txt","Fb Bot was here");
     	 $data = $request->all();
     	 // dd($data);
         //get the user’s id
