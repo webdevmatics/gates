@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    	 File::put("fb.txt","haha");
 	return File::get('fb.txt');
     // return file_put_contents('fb.txt',file_get_contents("php://input"));
 });
