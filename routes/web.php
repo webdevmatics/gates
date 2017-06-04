@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    file_put_contents('fb.txt',file_get_contents("php://input"));
 });
 
 Route::get('/bot','BotController@bot')->middleware('verifybot');
