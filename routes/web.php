@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-	// return File::get('fb.txt');
-    return file_put_contents('fb.txt',file_get_contents("php://input"));
+	return File::get('fb.txt');
+    // return file_put_contents('fb.txt',file_get_contents("php://input"));
 });
 
 Route::get('/bot','BotController@bot')->middleware('verifybot');
