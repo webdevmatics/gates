@@ -8,7 +8,6 @@ class BotController extends Controller
 {
     public function bot(Request $request)
     {   
-    dd(env("PAGE_ACCESS_TOKEN"));     
     	 $data = $request->all();
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
