@@ -12,7 +12,7 @@ class BotController extends Controller
     	 $data = $request->all();
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
-    	 // $this->sendTextMessage($id, "Welcome to Webdevmatics!");
+    	 $this->sendTextMessage($id, "Hi buddy");
     }
 
 
@@ -27,8 +27,8 @@ class BotController extends Controller
             ]
         ];
         $ch = curl_init('https://graph.facebook.com/v2.6/me/messages?access_token=' . env("PAGE_ACCESS_TOKEN"));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, false);
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($messageData));

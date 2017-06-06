@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/bot','BotController@bot')->middleware('verifybot');
-Route::post('/bot','BotController@bot')->middleware('verifybot');
+Route::post('/bot','BotController@bot');
 
 Route::get('/policy', function () {
 	$txt="we do not reveal any user information to public.";
