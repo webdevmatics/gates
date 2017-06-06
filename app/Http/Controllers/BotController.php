@@ -1,30 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\File;
 
 use Illuminate\Http\Request;
 
 class BotController extends Controller
 {
     public function bot(Request $request)
-    {   
-    	 $data = $request->all();
+    {
+        $data = $request->all();
         //get the user’s id
-        $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
-    	 // $this->sendTextMessage($id, "Hi buddy");
+        $id            = $data["entry"][0]["messaging"][0]["sender"]["id"];
+        $senderMessage = $data["entry"][0]["messaging"][0]['message'];
+        if (!empty($senderMessage)) {
+            $this->sendTextMessage($id, "Hi buddy");
+        }
     }
-
 
     private function sendTextMessage($recipientId, $messageText)
     {
         $messageData = [
             "recipient" => [
-                "id" => $recipientId
+                "id" => $recipientId,
             ],
-            "message" => [
-                "text" => $messageText
-            ]
+            "message"   => [
+                "text" => $messageText,
+            ],
         ];
         $ch = curl_init('https://graph.facebook.com/v2.6/me/messages?access_token=' . env("PAGE_ACCESS_TOKEN"));
         // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -34,6 +35,6 @@ class BotController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($messageData));
         curl_exec($ch);
         curl_close($ch);
-    
-}
+
+    }
 }
