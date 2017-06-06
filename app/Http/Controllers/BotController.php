@@ -9,12 +9,10 @@ class BotController extends Controller
 {
     public function bot(Request $request)
     {   
-    	File::put('fb.txt',json_encode($request->all()));
-
     	 $data = $request->all();
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
-    	 $this->sendTextMessage($id, "Hi");
+    	 $this->sendTextMessage($id, "Welcome to Webdevmatics!");
     }
 
 
@@ -35,6 +33,7 @@ class BotController extends Controller
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($messageData));
         curl_exec($ch);
+        curl_close($ch);
     
 }
 }

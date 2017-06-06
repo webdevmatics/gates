@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\File;
 
 Route::get('/', function () {
 	return File::get('fb.txt');
-    // return file_put_contents('fb.txt',file_get_contents("php://input"));
 });
 
 Route::get('/bot','BotController@bot')->middleware('verifybot');
@@ -24,5 +23,4 @@ Route::post('/bot','BotController@bot')->middleware('verifybot');
 Route::get('/policy', function () {
 	$txt="we do not reveal any user information to public.";
 	return $txt;
-    // return file_put_contents('fb.txt',file_get_contents("php://input"));
 });
