@@ -12,7 +12,7 @@ class BotController extends Controller
     	 $data = $request->all();
         //get the user’s id
         $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
-    	 $this->sendTextMessage($id, "Hi buddy");
+    	 // $this->sendTextMessage($id, "Hi buddy");
     }
 
 
