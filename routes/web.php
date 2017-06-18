@@ -13,14 +13,6 @@ use Illuminate\Support\Facades\File;
 |
 */
 
-Route::get('/', function () {
-	return File::get('fb.txt');
-});
-
-Route::get('/bot','BotController@bot')->middleware('verifybot');
-Route::post('/bot','BotController@bot');
-
-Route::get('/policy', function () {
-	$txt="we do not reveal any user information to public.";
-	return $txt;
+Route::get("/",function(){
+	return view('welcome');
 });
